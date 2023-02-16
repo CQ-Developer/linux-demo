@@ -1,0 +1,57 @@
+# 常见的压缩文件扩展名
+.Z       -> compress程序压缩的文件
+.zip     -> zip程序压缩的文件
+.gz      -> gzip程序压缩的文件
+.bz2     -> bzip2程序压缩的文件
+.xz      -> xz程序压缩的文件
+.tar     -> tar程序打包的文件，并未进行压缩
+.tar.gz  -> tar程序打包的文件，经过gzip程序的压缩
+.tar.bz2 -> tar程序打包的文件，经过bzip2程序的压缩
+.tar.xz  -> tar程序打包的文件，经过xz程序的压缩
+
+# 常见压缩命令
+compress(基本不再使用)
+gzip
+bzip2
+xz
+zip(兼容windows)
+
+# gzip
+zcat/zmore/zless - 读取.gz压缩文件的内容
+zgrep            - 搜索.gz压缩文件的内容
+znew             - 将compress的.Z压缩文件转换成gzip的.gz压缩文件
+
+# bzip2
+bzcat/bzmore/bzless - 读取.bz2压缩文件的内容
+bzgrep              - 搜索.bz2压缩文件的内容
+
+# xz
+xzcat/xzmore/xzless - 读取.xz压缩文件的内容
+xzgrep              - 搜索.xz压缩文件的内容
+
+# 打包并压缩
+tar [-z | -j | -J] [c | t | x] [v] [-f fiename.tar.?] [-C] [file/dir]
+# 压缩方式只能选取其中的一个
+-z 使用gzip进行压缩  -> filename.tar.gz
+-j 使用bzip2进行压缩 -> filename.tar.bz2
+-J 使用xz进行压缩    -> filename.tar.xz
+# 模式只能选择其中之一
+-c 打包
+-t 查看
+-x 解包
+# 其他选项
+-v 显示详细信息
+-f 打包时指定创建的打包文件名，解包时指定待解包的文件名，查看时指定打包文件名
+-C 解包到指定的目录 
+-p 保留文件的原始属性与权限
+-P 保留文件的绝对路径
+--exclude files 打包时排除指定的文件，可以使用通配符*
+--newer-mtime="2020/01/01" 仅打包比指定时间更新的文件
+# 将某个目录打包并使用gzip压缩
+tar -zcv -f newfile.tar.gz /path
+# 查看某个压缩文件中的内容
+tar -ztv -f filename.tar.gz
+# 解压某个压缩文件
+tar -zxv -f fiename.tar.gz [innerFilename] [-C dir]
+
+

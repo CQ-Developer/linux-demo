@@ -1,0 +1,35 @@
+# 记录用户信息的文件
+/etc/passwd
+
+# 记录用户组信息的文件
+/etc/group
+
+# 记录用户密码的文件
+/etc/shadow
+
+# 修改系统默认语系
+/etc/locale.conf
+
+# ext文件系统格式化配置
+/etc/mke2fs.conf
+
+# 启动时读取的文件系统表
+/etc/fstab
+
+# 实际文件系统的挂载记录文件
+/etc/mtab
+/proc/mounts
+
+# 系统指定的测试挂载文件系统的优先级
+/etc/filesystems
+
+# 查看系统当前可用的shell有哪些
+/etc/shells
+
+# shell环境配置文件
+/etc/profie -> /etc/profile.d
+
+# 自定义环境配置文件
+~/.bash_profile -> ~/.bashrc
+~/.bash_login
+~/.profile

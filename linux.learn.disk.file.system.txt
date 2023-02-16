@@ -1,0 +1,101 @@
+# 文件系统
+fat  (file allocation table      ): 文件配置表
+ext2 (second extended file system): 第2代扩展文件系统
+ext3 (third extended file system ): 第3代扩展文件系统
+ext4 (fourth extended file system): 第4代扩展文件系统
+xfs  (x file system              ): x文件系统
+ntfs (new technology file system ): 新技术文件系统
+
+# 独立磁盘冗余阵列
+RAID(Redundant Array of Independent Disks)
+
+# /proc
+/proc/filesystems
+/proc/cpuinfo
+
+# 显示目前系统被格式化的设备
+blkid
+
+# 查询ext系列超级区块信息
+dumpe2fs(dump ext2 file system)
+
+# 检查ext系列文件系统
+e2fsck(ext2 file system check)
+
+# 支持的文件系统
+ls -l /lib/modules/$(uname -r)/kernel/fs
+
+# 当前已加载到内存中支持的文件系统
+cat /proc/filesystems
+
+# 查看文件系统磁盘空间使用情况
+df
+
+# 估算文件的空间使用量
+du
+
+# 查看xfs文件系统信息
+xfs_info
+
+# 建立链接
+ln
+
+# 列出所有的磁盘设备
+lsblk(list block devices)
+
+# 列出磁盘的分区表类型与分区信息
+# 或进行分区
+parted
+
+# 磁盘分区MBR
+fdisk
+
+# 磁盘分区GPT
+gdisk
+
+# 一般操作步骤
+lsblk/blkid -> parted -> gdisk/fdisk
+
+# 通知操作系统更新分区表
+partprobe
+
+# 格式化
+mkfs
+mkfs.xfs
+mkfs.ext4
+
+# 检查/修复xfs文件系统
+xfs_repair
+
+# 检查与修复linux文件系统
+fsck
+
+# 挂载文件系统
+mount
+
+# 卸载文件系统
+umount
+
+# 手动创建磁盘文件
+mknod
+
+# 修改xfs文件系统的UUID和Label
+xfs_admin
+
+# 修改ext4文件系统的label和uuid
+tune2fs
+
+# 将分区制作成swap格式
+mkswap
+
+# 检查系统内存使用情况
+free
+
+# 启用/关闭指定的swap分区
+swapon/swapoff
+
+# 备份xfs文件系统
+xfsdump
+
+# xfs文件系统还原
+xfsrestore

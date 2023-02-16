@@ -1,0 +1,104 @@
+# 修改文件的拥有者
+chown
+
+# 修改文件所属用户组
+chgrp
+
+# 行该文件权限
+chmod
+
+rwx 421
+
+u user
+g group
+o others
+a all
+
++ 添加权限
+- 删除权限
+= 设置权限
+
+# 文件类型
+- 普通文件
+d 目录
+
+b 区块设备文件
+c 字符设备问及那
+
+s 数据接口文件
+p 数据传输文件
+
+l 链接文件
+
+# 复制
+cp
+
+# 删除
+rm
+
+# 移动和重命名
+mv
+
+# 重命名
+rename
+
+# 获取文件名
+basename
+
+# 获取路径名
+dirname
+
+# 查看文件内容
+cat tac
+nl
+more less
+head tail
+od
+
+# 设置文件隐藏属性
+chattr
+
+# 查看文件隐藏属性
+lsattr
+
+# 显示或设置用户在创建文件或目录时的默认权限
+umask
+
+# 文件特殊属性
+SUID - Set UID - 4 - s
+SGID - Set GID - 2 - s
+SBIT - Sticky Bit - 1 - t
+
+# 查看文件类型
+# 也可以查看tar包使用的是哪一种压缩类型
+file
+
+# 查找命令的位置
+which
+
+# 查找命令的二进制格式文件、source源文件、man文件
+whereis
+
+# 根据文件名查找文件
+locate
+
+# 搜索文件
+find
+
+# 将windows换行符转换成linux换行符
+dos2unix [-k | -n] file [newfile]
+-k 保留文件的mtime
+-n 保留原文件，将转换的内容输出到新文件
+
+# 将linux换行符转换成windows换行符
+unix2dos [-k | -n] file [newfile]
+-k 保留文件的mtime
+-n 保留原文件，将转换的内容输出到新文件
+
+# 转换文件编码格式
+iconv [--list]
+iconv -f character -t character filename [-o newfile]
+--list 列出支持的编码格式
+-f 原编码格式
+-t 目标编码格式
+-o 输出到新文件

@@ -1,0 +1,108 @@
+# 查看系统为用户分配的默认shell
+/etc/passwd
+
+# bash的命令历史记录文件
+~/.bash_history
+
+# 查看当前环境的所有命令别名
+alias
+
+# 设置别名命令
+alias lm='ls -al'
+
+# 查询命令是否为bash的内置命令
+type [-afptP] name [name ...]
+
+# 命令行快捷键
+将光标移动到命令行的最前端 [Ctrl+a]
+将光标移动到命令行的最后段 [Ctrl+e]
+将光标前的命令全部删除 [Ctrl+u]
+将光标后的命令全部删除 [Ctrl+k]
+
+# 变量
+查看变量: echo ${variable}
+设置变量: name=value
+取消变量: unset name
+数组变量: name[i]=value
+
+# 设置变量的注意点
+1name=zhangsan     <=   非法: 变量名必须以英文字母开头
+name1=zhangsan     <=   合法: 变量名可以包含字母和数字
+name = zhangsan    <=   非法: 等号两边不能存在空格
+name=zhang san     <=   非法: 值中间存在空格
+name=zhang\ san    <=   合法: 使用\转义了空格
+name="zhang san"   <=   合法: 使用双引号
+name='zhang san'   <=   合法: 使用单引号
+lang="my lang is $LANG"   <=   在双引号中$LANG会被当做变量被执行
+lang='my lang is $LANG'   <=   在单引号中$LANG会被当作字符串对待
+version=$(uname -r)   <=   可以通过$(command)这种形式将命令执行的结果作为变量内容
+
+
+# 环境变量
+显示所有环境变量 env
+显示所有变量     set
+
+# 一些比较重要的变量
+当前shell的PID         $
+上一个命令的返回值代码 ?
+
+# 自定义变量和环境变量间的转换
+将自定义变量转换为环境变量 export
+将环境变量转换为自定义变量 declare
+
+# 读取用户的输入作为变量
+read [-pt] variable
+-p 提示信息
+-t 等待秒数
+
+# 生命变量的类型
+declare、typeset
+-a 将变量声明为数组类型
+-i 将变量声明为整数类型
+-x 将自定义变量转换为环境变量
++x 将环境变量转换为自定义变量
+-r 将变量设置为只读
+   不可改变内容
+   也无法unset
+-p 列出变量的属性和值
+
+# 命令的别名
+alias   显示当前环境中的命令别名
+        设置命令的别名
+unalias 取消命令别名的设置
+
+# 命令的执行历史
+history
+n  显示最近n条命令
+-c 将当前shell中的所有历史命令全部清除
+-a 将新增的命令写入hisfile中
+   若不存在hisfile则写入~/.bash_history中
+-r 将hisfile中的记录读入到当前shell的history记录中
+-w 将当前history记录写入hisfile中
+   若不存在hisfile则写入~/.bash_history中
+
+# 执行历史命令
+!! 执行上一条命令
+!n 执行第n条命令
+   n为一个数字
+!c 执行最近一个名称为c开头的命令
+   c为一个字符串
+
+# 设置终端
+stty
+-a 将所有终端的参数列出来
+
+# 设置当前终端的参数
+set
+-u 当未设置变量时，会显示错误信息
+-v 在信息被输出前，会显示信息的原始内容
+-x 在命令被执行前，会显示命令内容
+-h 与历史命令相关
+-H 与历史命令相关
+-m 与任务管理有关
+-B 与中括号的作用相关
+-C 使用>等，若文件存在时，该文件不会被覆盖
+使用+号取消设置
+
+# 显示当前set的设置
+echo $-

@@ -1,0 +1,78 @@
+# 语系
+显示当前环境的语系 locale
+显示系统支持的语系 locale -a
+修改当前的语系 LANG=?
+修改当前的语系 LC_ALL=?
+语系文件目录         /usr/lib/locale
+系统默认语系配置文件 /etc/locale.conf
+
+# LANG只与输出信息有关
+# 若要该其他不同信息, 同步更新LC_ALL
+LANG=?
+export LC_ALL=?
+
+# 查看当前系统时间
+date
+
+# 查看日历
+cal
+
+# 计算器
+bc
+
+# 文本编辑器
+nano
+
+# 数据同步命令
+sync
+
+# 查看当前在线用户
+who
+
+# 查看网络状态
+netstat
+
+# 查看后台执行的程序
+ps -aux
+
+# 关机, 重启
+shutdown
+reboot
+halt
+poweroff
+
+# 系统服务管理
+systemctl
+
+# 打印账号属性
+id
+
+# ??
+history
+type
+
+# 生成UUID
+uuidgen
+
+# 复制并转换一个文件
+dd
+
+# 比较文件差异
+diff
+
+# 可以备份任何东西
+cpio
+
+# 将一个在前台执行的命令放到后台挂起
+Ctrl+z
+
+# 杀次后台任务
+kill -9 %[job]
+kill -9 pid
+
+# 进入内核模块目录
+cd /lib/modules/$(uname -r)/kernal
+
+# 随机数生成器
+设备文件 /dev/random
+环境变量 RANDO
