@@ -13,17 +13,9 @@ test ! -e $filename && echo "$filename not exist." && exit 0
 test -f $filename && echo "$filename is a file."
 test -d $filename && echo "$filename is a directory."
 
-# r=$(test -r $filename && echo r)
-# test -z $r && declare r=-
-# w=$(test -w $filename && echo w)
-# test -z $w && declare w=-
-# x=$(test -x $filename && echo x)
-# test -z $x && declare x=-
-# echo $r$w$x
-
-test -r $filename && perm="readable"
-test -w $filename && perm="$perm writable"
-test -x $filename && perm="$perm executable"
-echo "your perm of $filename is $perm"
+r=$(test -r $filename && echo r || echo -)
+w=$(test -w $filename && echo w || echo -)
+x=$(test -x $filename && echo x || echo -)
+echo $r$w$x
 
 exit 0
