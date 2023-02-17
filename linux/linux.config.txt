@@ -1,0 +1,6 @@
+# 按键设置配置文件
+/etc/inputrc
+
+# 终端相关配置文件
+/etc/DIR_COLORS*
+/usr/share/terminfo/*

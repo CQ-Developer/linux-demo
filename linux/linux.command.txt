@@ -1,0 +1,62 @@
+dmesg  检查或控制内核缓冲区
+--help 显示帮助信息
+
+sed [option]... [[n1[,n2]]function]         过滤和转换文本的流式编辑器
+
+[option]
+-n, --quiet, --slient              安静模式
+                                   仅显示被操作的行
+-e script, --expression=script     在命令行上直接执行脚本
+                                   如果只进行一个操作可以忽略此参数
+-f script-file, --file=script-file 添加脚本文件的内容进行执行
+-r, -E, --regexp-extended          使用扩展的正则表达式语法
+-i[SUFFIX], --in-place[=SUFFIX]    就地编辑
+                                   如果提供了SUFFIX则进行备份
+--help                             显示帮助信息
+
+[[n1[,n2]]function]
+n1,n2 选择进行操作的行数
+a 新增 可以接字符串,在下一行出现
+i 插入 可以接字符串,在上一行出现
+c 取代 接字符串,取代n1,n2之间的行
+s 替换 可以搭配正则表达式进行替换,如n1,n2s/old/new/g
+d 删除 不接任何内容,删除
+p 打印 将选择的数据打印出来
+
+# 将文件的第二至五行删除
+nl /etc/passwd | sed '2,5d'
+
+# 将文件的第二行删除
+nl /etc/passwd | sed '2d'
+
+# 将文件的第三至最后一行删除
+nl /etc/passwd | sed '3,$d'
+
+# 在文件的第二行后添加文本
+nl /etc/passwd | sed '2a hello world'
+
+# 在文件的第二行前添加文本
+nl /etc/passwd | sed '2i hello world'
+
+# 在文件的第二行后添加两行文本
+nl /etc/passwd | sed '2i hello world 1\
+hello world 2'
+
+# 使用文本取代将文件的第二至五行内容
+nl /etc/passwd | sed '2,5c here is nothing'
+
+# 仅显示文件的第五到七行
+nl /etc/passwd | sed -n '5,7p'
+
+# 在IP命令中仅显示出IP地址
+ip address show | grep -A 5 'eth0' | grep 'inet ' | sed 's/^.*inet //g' | sed 's/\/.*//g'
+
+# 显示包含MAN的行
+# 不要注释和空行
+cat /etc/manpath.config | grep 'MAN' | sed 's/^#.*$//g' | sed '/^$/d'
+
+# 直接操作文件将结尾的.替换成!
+sed -i 's/\.$/!/g' regular_express.txt
+
+# 直接操作文件在最后一行添加内容
+sed -i '$a # this is a test' regular_express.txt

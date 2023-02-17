@@ -1,0 +1,38 @@
+printf
+
+\a   告警声
+
+\b   Backspace键
+
+\f   换页清屏
+
+\n   换行
+
+\r   回车
+
+\t   水平制表符Tab
+
+\v   垂直制表符Tab
+
+\xHH HH为两位十六进制表示的数字
+     将十六进制数字转换为ASCII字符
+     \x61 表示十六进制数字61 也就是十进制的97 表示ASCII字符a
+
+%ns   字符n为数字
+      字符s表示字符
+      %3s 表示三位长度的字符
+
+%ni   字符n为数字
+      字符i表述整数
+      %5i 表示五位长度整数
+
+%n.mf 字符n与m为数字
+      字符f表示浮点数
+      %10.2f 表示浮点数共十位其中两位是小数位
+
+print '%s\t %s\t %s\t %s\t %s\n' $(cat printf.txt)
+
+printf '%6s %2i %2i %2i %4.2f\n' $(grep -v 'Name' printf.txt)
+
+print '\x61\n'
+

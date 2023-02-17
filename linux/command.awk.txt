@@ -1,0 +1,47 @@
+[awk]
+
+# 描述
+sed一般用作按行为单位进行文本处理
+awk一般作用将行分成多个字段进行处理
+因此awk适合处理小型文本
+awk也是一个管道命令
+
+# 使用方式
+awk 'condition{operation} ...' file
+
+# 处理流程
+读入一行数据，并将数据写入$0、$1、$2等变量中
+根据条condition判断是否执行后面的操作operation
+完成所有的操作与条件
+若还有后续的行的数据，则重复以上步骤，直到所有数据读完为止
+注意中括号中的多个命令可以使用分号进行分隔
+
+# 内置变量
+NF 每行拥有的字段数，也就是$0
+NR 当前awk在处理第几行数据
+FS 当前的分隔字符，默认为空格
+BEGIN
+END
+
+# 逻辑运算符
+>  大于
+>= 大于等于
+<  小于
+<= 小于等于
+== 等于
+!= 不等于
+
+# 将登录信息的username和ip打印出来
+last -n 5 | awk '{print $1 "\t" $3}
+
+# 将登录信息的username打印出来
+# 并显示awk当前处理的是第几行以及该行有多少个字段
+last -n 5 | awk '{print $1 "\t lines: " NR "\t columns: " NF}'
+
+# 操作/etc/passwd文件
+# 仅列出username和UID，且UID小于10
+awk 'BEGIN {FS=":"} $3 < 3 {print $1 "\t" $3}' /etc/passwd
+
+# 进行工资计算
+cat pay.txt | awk 'NR==1{printf "%10s %10s %10s %10s %10s\n", $1, $2, $3, $4, "total"} NR>=2{total =$2+$3+$4; printf "%10s %10d %10d %10d %10.2f\n", $1, $2, $3, $3, total}'
+
