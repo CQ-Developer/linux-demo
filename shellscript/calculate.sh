@@ -18,6 +18,10 @@ read -p "input your number b: " second_number
 # let result*=first_number
 # let result*=second_number
 
+# 使用bc进行计算
+# 使用bc可以进行小数的计算并指定精度
+# echo "scale=3; ${first_number}*${second_number}" | bc
+
 # 使用$((...))执行计算
 result=$((${first_number}*${second_number}))
 echo ${result}
