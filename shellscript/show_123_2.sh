@@ -13,10 +13,10 @@ case $1 in
         print_it; echo $1 | tr [:lower:] [:upper:]
         ;;
     "two")
-        print_it; echo $1 | tr [:lower:] [:upper:]
+        print_it; echo $1 | tr "a-z" "A-Z"
         ;;
     "three")
-        print_it; echo $1 | tr [:lower:] [:upper:]
+        print_it; echo $1 | tr 'a-z' 'A-Z'
         ;;
     *)
         echo "usage $0 {one | two | three}"
