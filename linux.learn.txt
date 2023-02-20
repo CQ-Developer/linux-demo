@@ -76,3 +76,6 @@ cd /lib/modules/$(uname -r)/kernal
 # 随机数生成器
 设备文件 /dev/random
 环境变量 RANDO
+
+# 产生数字序列
+seq
