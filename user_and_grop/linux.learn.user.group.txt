@@ -1,0 +1,29 @@
+登录的简单流程
+/etc/passwd   =>   /etc/group   =>   /etc/shadow
+UID                GID               密码
+
+用户配置文件
+/etc/passwd
+/etc/shadow
+
+用户组配置文件
+/etc/group
+/etc/gshadow
+
+配置文件说明
+man 5 passwd
+man 5 shadow
+man 5 group
+man 5 gshadow
+
+# 命令: 显示用户拥有的用户组
+groups
+
+# 命令: 修改用户的有效组
+newgrp
+
+# 命令: 创建用户
+useradd
+
+# 命令: 修改密码
+passwd
