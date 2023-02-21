@@ -32,10 +32,10 @@
 /etc/login.defs
 
 # 示例一: 创建账户张三使用默认配置
-useradd zhangsan
+> useradd zhangsan
 
 # 示例二: 创建账户李四指定UID和组
-useradd -u 1100 -g users lisi
+> useradd -u 1100 -g users lisi
 
 # 示例三: 创建系统账户王五
-useradd -r wangwu
+> useradd -r wangwu
