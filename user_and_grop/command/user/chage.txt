@@ -1,0 +1,10 @@
+# 修改密码过期信息
+chage [OPTIONS] LOGIN
+-i               使用YYYY-MM-DD格式显示日期
+-l               显示账户过期信息
+-d LAST_DAY      设置最近一次修改密码的日期(YYYY-MM-DD)
+-E EXPIRE_DATE   设置账号失效日期(YYYY-MM-DD)
+-I INACTIVE      设置密码过期后的可用天数
+-m MIN_DAYS      设置密码修改间隔的最小天数, 0表示可以随意修改密码
+-M MAX_DAYS      设置密码有效的最大天数
+-w WARN_DAYS     设置密码过期前几天发出警告
