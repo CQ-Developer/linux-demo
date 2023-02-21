@@ -2,9 +2,10 @@
 groups [option]... [username]...
 
 # 选项说明
-[option]
+[option]   可选项如下
     --help    显示帮助信息
     --version 软件版本信息
+[username] 用户名
 
 # 示例: 显示chen这个用户所在的用户组
 > groups root
