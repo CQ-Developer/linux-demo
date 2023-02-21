@@ -1,0 +1,22 @@
+# 切换用户的有效用户组
+# 只能切换到用户当前拥有的用户组中
+newgrp [-] [group]
+
+# 示例一: 假设当前用户为chen
+> touch a1
+> ll a1
+< -rw-r--r-- 1 chen chen   0 Feb 21 14:12 a1
+
+# 示例二: 切换有效组为docker
+> newgrp docker
+> touch a2
+> ll a2
+< -rw-r--r-- 1 chen docker 0 Feb 21 14:12 a2
+
+# 示例三: 切换回默认的有效组
+> newgrp
+> touch a3
+> ll a*
+< -rw-r--r-- 1 chen chen   0 Feb 21 14:12 a1
+< -rw-r--r-- 1 chen docker 0 Feb 21 14:12 a2
+< -rw-r--r-- 1 chen chen   0 Feb 21 14:12 a3
