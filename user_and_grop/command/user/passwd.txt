@@ -1,0 +1,48 @@
+# 修改账户密码
+passwd [OPTION]... [LOGIN]
+-a             只能与-S共同使用, 展示所有账户状态信息
+-S             展示账户状态信息
+-d             删除账户的密码
+-e             立即让账户的密码过期
+-i INACTIVE    密码过期后到帐户被永久禁用的天数
+-l             锁定账户密码使其失效
+-u             解锁账户密码
+-n MIN_DAYS    多次修改密码间的最小间隔天数, 0表示可以随意更改
+-w WARN_DAYS   密码过期前几天警告用户
+-x MAX_DAYS    密码几天后过期, -1表示永不过期
+
+# PAM
+新版Linux使用较为严格的PAM模块来管理密码, 该机制写在/etc/pam.d/passwd
+
+# 示例一: 设置张三的密码
+> passwd zhangsan
+> New password:
+> Retype new password:
+< passwd: password updated successfully
+
+# 示例二: 查看张三的密码状态
+> passwd -S zhangsan
+< zhangsan P 02/21/2023 0 99999 7 -1
+# 02/21/2023   创建密码时间
+# 0            修改密码间隔最小天数
+# 99999        在99999天后需要修改密码
+# 7            密码到期前7天开始告警
+# -1           密码过期后账户永远不过期
+
+# 示例三: 设置张三的密码有效期为60天且密码过期后10天禁用账户
+> passwd -x 60 -i 10 zhangsan
+< passwd: password expiry information changed.
+> passwd -S zhangsan
+< zhangsan P 02/21/2023 0 60 7 10
+
+# 示例四: 锁定李四使其无法登录
+> passwd -S lisi
+< lisi P 02/21/2023 0 99999 7 -1
+> passwd -l lisi
+< passwd: password expiry information changed.
+
+# 示例五: 解锁李四
+> passwd -S lisi
+< lisi L 02/21/2023 0 99999 7 -1
+> passwd -u lisi
+< passwd: password expiry information changed.
