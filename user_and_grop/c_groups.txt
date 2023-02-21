@@ -1,0 +1,18 @@
+# 输出用户所在的用户组
+groups [option]... [username]...
+
+# 选项说明
+[option]
+    --help    显示帮助信息
+    --version 软件版本信息
+
+# 示例: 显示chen这个用户所在的用户组
+> groups root
+< chen : chen adm dialout cdrom floppy sudo audio dip video plugdev netdev docke
+
+# 示例: 不指定用户将默认输出当前用户所在的用户组
+> groups
+< chen adm dialout cdrom floppy sudo audio dip video plugdev netdev docke
+
+# 说明
+第一个输出的用户组就是有效组, 既所谓的[effective group], 用户创建的文件默认都数据该组
