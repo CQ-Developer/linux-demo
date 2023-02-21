@@ -20,3 +20,7 @@ newgrp [-] [group]
 < -rw-r--r-- 1 chen chen   0 Feb 21 14:12 a1
 < -rw-r--r-- 1 chen docker 0 Feb 21 14:12 a2
 < -rw-r--r-- 1 chen chen   0 Feb 21 14:12 a3
+
+# 说明
+当切换到别的用户组时, 实际上是进入了一个子shell, 在子shell中切换了用户组
+可以通过exit命令直接回到原本的环境中
