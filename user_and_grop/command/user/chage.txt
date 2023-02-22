@@ -1,4 +1,5 @@
 # 修改密码过期信息
+# 更方便的查看密码的过期信息
 chage [OPTIONS] LOGIN
 -i               使用YYYY-MM-DD格式显示日期
 -l               显示账户过期信息
@@ -7,4 +8,27 @@ chage [OPTIONS] LOGIN
 -I INACTIVE      设置密码过期后的可用天数
 -m MIN_DAYS      设置密码修改间隔的最小天数, 0表示可以随意修改密码
 -M MAX_DAYS      设置密码有效的最大天数
--w WARN_DAYS     设置密码过期前几天发出警告
+-W WARN_DAYS     设置密码过期前几天发出警告
+
+# 示例一: 查看张三的密码过期详细信息
+> chage -il zhangsan
+< Last password change                                    : 2023-02-21
+< Password expires                                        : 2023-04-22
+< Password inactive                                       : 2023-05-02
+< Account expires                                         : never
+< Minimum number of days between password change          : 0
+< Maximum number of days between password change          : 60
+< Number of days of warning before password expires       : 7
+
+# 示例二: 设置李四在第一次登录时必须重置密码
+> useradd lisi
+> passwd lisi
+> chage -d 0 lisi
+> chage -il lisi
+> Last password change                                    : password must be changed
+> Password expires                                        : password must be changed
+> Password inactive                                       : password must be changed
+> Account expires                                         : never
+> Minimum number of days between password change          : 0
+> Maximum number of days between password change          : 99999
+> Number of days of warning before password expires       : 7
