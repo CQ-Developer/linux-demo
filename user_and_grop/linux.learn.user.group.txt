@@ -27,3 +27,9 @@ useradd
 
 # 命令: 修改密码
 passwd
+
+# 命令: 修改密码过期信息
+chage
+
+# 命令: 修改账户信息
+usermod
