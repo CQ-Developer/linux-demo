@@ -1,0 +1,15 @@
+# 修改账户信息
+usermod [OPTIONS] LOGIN
+-a               追加, 只能与(-G)一起使用
+-G GROUP...      设置补充用户组
+-c COMMENT       设置账户说用
+-d HOME_DIR      设置家目录
+-m               将用户家目录移动到一个新目录, 只能与(-d)一起使用
+-e EXPIRE_DATE   设置账户过期时间, 格式YYYY-MM-DD
+-f INACTIVE      设置密码过期后账户可用天数, 0表示密码过期后账户立即禁用, -1表示密码过期后不禁用账户
+-g GROUP         设置初始用户组
+-l NEW_LOGIN     修改用户名
+-L               锁定账户
+-U               解锁账户
+-s SHELL         设置默认SHELL
+-u UID           设置UID
