@@ -33,3 +33,6 @@ chage
 
 # 命令: 修改账户信息
 usermod
+
+# 命令: 删除账户
+userdel
