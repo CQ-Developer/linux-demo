@@ -1,0 +1,7 @@
+# 删除用户及相关资料
+userdel [OPTIONS] LOGIN
+-f   强制删除
+-r   删除家目录及其内容
+
+# 示例一: 删除张三及家目录
+> userdel -r zhangsan
