@@ -1,0 +1,10 @@
+# 创建用户组
+groupadd [options] group
+-g GID   指定GID
+-r       创建系统用户组
+
+# 示例一: 创建testgroup用户组
+> groupadd testgroup
+> sudo grep testgroup /etc/group /etc/gshadow
+< /etc/group:testgroup:x:1001:
+< /etc/gshadow:testgroup:!::
