@@ -1,0 +1,11 @@
+# 修改用户信息
+chfn [OPTIONS] [LOGIN]
+-f FULL_NAME     修改用户全名
+-h HOME_PHONE    修改用户的家庭电话
+-w WORK_PHONE    修改用户的工作电话
+-o OTHER         修改用户的其他信息
+-r ROOM_NUMBER   修改用户的房间号
+
+# 说明
+如果提供任何参数, 将以交互模式进入程序
+实际更改的内容是/etc/passwd中的第五栏
