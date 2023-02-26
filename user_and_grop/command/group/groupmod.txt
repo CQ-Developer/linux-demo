@@ -1,0 +1,7 @@
+# 修改组的属性
+groupmod [options] group
+-g GID         修改GID
+-n NEW_GROUP   修改组名
+
+# 示例一: 将testgroup名称修改为mygroup
+> groupmod -n mygroup testgroup
