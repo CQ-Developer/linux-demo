@@ -1,0 +1,5 @@
+# 删除组
+groupdel [options] group
+
+# 示例一: 删除mygroup组
+> groupdel mygroup
