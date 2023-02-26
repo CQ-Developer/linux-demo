@@ -1,0 +1,7 @@
+# 修改用户的默认shell
+chsh [OPTIONS] [LOGIN]
+-s SHELL   修改用户的默认shell
+
+# 说明
+不添加任何参数则启用交互模式运行
+
