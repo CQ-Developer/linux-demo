@@ -1,0 +1,9 @@
+# 查看UID和GID
+id [OPTION]... [USER]...
+
+# 说明
+选项可以忽略, 默认就会显示出所有信息
+
+# 示例一: 显示当前用户的UID和GID
+> id
+< uid=1000(chen) gid=1000(chen) groups=1000(chen),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),122(lpadmin),135(lxd),136(sambashare)
