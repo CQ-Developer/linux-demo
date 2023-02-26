@@ -42,3 +42,18 @@ id
 
 # 命令: 修改用户详细信息
 chfn
+
+# 命令: 修改用户的默认shell
+chsh
+
+# 命令: 创建用户组
+groupadd
+
+# 命令: 修改组属性
+groupmod
+
+# 命令: 删除组
+groupdel
+
+# 命令: 组管理员
+gpasswd
