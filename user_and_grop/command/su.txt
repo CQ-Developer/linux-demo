@@ -1,0 +1,34 @@
+# 切换用户
+su [options] [username]
+-            使用login-shell登录
+-l           与-类似也使用login-shell登录, 但需要添加用户名
+-m           与-p类似, 表示使用但前环境, 不读取新使用者的环境
+-c COMMAND   仅执行一次命令
+
+# 示例一
+# 使用non-login-shell方式切换到root用户
+> su
+> env | grep chen
+< PWD=/home/chen
+< LOGNAME=chen
+< USERNAME=chen
+< USER=chen
+# 可以发现虽然已经切换到了root用户, 但使用的还是chen的环境
+
+# 示例二
+# 使用login-shell方式切换到root用户
+> su -
+> env | grep chen
+< PWD=/root
+< LOGNAME=root
+< HOME=/root
+< USER=root
+< MAIL=/var/mail/root
+# 可以发现环境也已经切换到root用户
+
+# 示例三
+# 使用root账户执行一次令名
+> su - -c "head -n 3 /etc/passwd"
+< root:x:0:0:root:/root:/bin/bash
+< daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+< bin:x:2:2:bin:/bin:/usr/sbin/nologin
