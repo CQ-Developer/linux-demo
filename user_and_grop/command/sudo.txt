@@ -1,0 +1,9 @@
+# 使用其他用户的身份执行命令
+# 只有规范到/etc/sudoers中的用户才能使用sudo命令
+sudo [-b] [-u user]
+-b        后台运行
+-u user   以user用户的身份运行
+
+# 示例一
+# 以test用户身份在/tmp下建立mytest文件
+> sudo -u test touch /tmp/mytest
