@@ -68,3 +68,7 @@ su
 
 # 命令: 以其他用户身份执行命令
 sudo
+
+# 命令: 修改/etc/visudoers
+visudo
+
