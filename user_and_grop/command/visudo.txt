@@ -1,0 +1,7 @@
+# visudo命令用于修改/etc/sudoers文件
+visudo
+
+# 说明
+visudo具有特殊格式
+通过man 5 sudoers查看具体说明
+
