@@ -72,3 +72,10 @@ sudo
 # 命令: 修改/etc/visudoers
 visudo
 
+# shell: /sbin/nologin
+# shell: /usr/sbin/nologin
+默认shell为该shell的用户不可以登录
+但他们能使用一些特定的资源
+
+# 配置文件: /etc/nologin.txt
+当使用nologin用户登录时, 将该文件内容将作为提示告知用户不能登录的原因
