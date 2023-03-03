@@ -1,19 +1,23 @@
 # 下载文件
 curl [options] URL
--C OFFSET              断点续传
--k                     忽略TLS校验
--o FILE                将数据下载到FILE中
--O                     使用原始文件名
--J                     使用content-disposition中的文件名而不是URL中的文件名
--L                     跟随跳转
--r RANGE               分断下载
--#                     显示进度条
--I                     显示请求头
--s                     安静模式
--v                     显示请求过程中的详细信息
---output-dir DIR       指定下载的文件夹
---limit-rate SPEED     下载速率,默认字节/秒,可以指定单位k,m,g,t,p
---max-filesize BYTES   下载文件的最大大小,超过则报错,默认字节,可以指定单位k,m,g,t,p
+-C OFFSET                  断点续传
+-k                         忽略TLS校验
+-o FILE                    将数据下载到FILE中
+-O                         使用原始文件名
+-J                         使用content-disposition中的文件名而不是URL中的文件名
+-L                         跟随跳转
+-r RANGE                   分断下载
+-#                         显示进度条
+-I                         显示请求头
+-s                         安静模式
+-v                         显示请求过程中的详细信息
+--output-dir DIR           指定下载的文件夹
+--limit-rate SPEED         下载速率,默认字节/秒,可以指定单位k,m,g,t,p
+--max-filesize BYTES       下载文件的最大大小,超过则报错,默认字节,可以指定单位k,m,g,t,p
+--retry NUM                重试几次
+--retry-all-errors         发生任何错误都进行重试
+--retry-delay SECONDS      每次重试延迟几秒
+--retry-max-time SECONDS   重试最大延迟时间
 
 # 假设要下载该文件
 https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/02_NotoSansCJK-TTF-VF.zip
