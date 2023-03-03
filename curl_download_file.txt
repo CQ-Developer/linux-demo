@@ -1,0 +1,45 @@
+# 下载文件
+curl [options] URL
+-C OFFSET              断点续传
+-k                     忽略TLS校验
+-o FILE                将数据下载到FILE中
+-O                     使用原始文件名
+-J                     使用content-disposition中的文件名而不是URL中的文件名
+-L                     跟随跳转
+-r RANGE               分断下载
+-#                     显示进度条
+-I                     显示请求头
+-s                     安静模式
+-v                     显示请求过程中的详细信息
+--output-dir DIR       指定下载的文件夹
+--limit-rate SPEED     下载速率,默认字节/秒,可以指定单位k,m,g,t,p
+--max-filesize BYTES   下载文件的最大大小,超过则报错,默认字节,可以指定单位k,m,g,t,p
+
+# 假设要下载该文件
+https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/02_NotoSansCJK-TTF-VF.zip
+
+# 例一
+# 查看要下载的文件大小和文件名
+curl -sLI https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/02_NotoSansCJK-TTF-VF.zip | egrep --color=auto "^content-(type|length|disposition)"
+
+# 例二
+# 使用原始的文件名下载文件
+curl -#LOJ https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/02_NotoSansCJK-TTF-VF.zip
+
+# 例三
+# 指定下载文件的文件名
+curl -#L -o myfile.zip https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/02_NotoSansCJK-TTF-VF.zip
+
+# 例四
+# 只下载文件的前138556822个字节
+curl -#L -o myfile.zip -r 0-138556821 https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/02_NotoSansCJK-TTF-VF.zip
+
+# 例五
+# 断点续传
+# 在例四基础上下载剩余文件
+curl -#L -C 138556822 -o myfile.zip https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/02_NotoSansCJK-TTF-VF.zip
+curl -#L -C - -o myfile.zip https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/02_NotoSansCJK-TTF-VF.zip
+
+# 例六
+# 分段下载再合并
+参考download.part.sh脚本
