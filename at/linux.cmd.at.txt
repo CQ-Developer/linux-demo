@@ -1,0 +1,54 @@
+# 计划任务的两种方式: at 和 cron
+
+at可以处理只执行一次就结束的任务
+crontab可以让任务周期性的执行
+除了命令之外还可以通过编辑/etc/crontab
+
+# 重启atd服务
+systemctl restart atd
+# 开机自动启动atd
+systemctl enable atd
+# 查看atd服务的状态
+systemctl status atd
+
+使用at命令生成要执行的命令
+将命令以文本文件的形式写入/var/spool/at目录
+
+控制哪些用户可以使用at命令
+首先读取/etc/at.allow, 该文件相当于白名单, 白名单中存在的用户才能使用at命令
+若/etc/at.allow不存在则读取/etc/at.deny, 该文件相当于黑名单, 黑名单中的用户不能使用at命令
+若两个文件都不存在, 则只有root才能使用at命令
+
+# 命令
+at                  在指定时间执行命令
+atq                 列出当前用户的待执行任务
+                    如果是root用户则列出所有用户的待执行任务
+                    输出格式为: 任务编号, 执行时间, 队列编号, 任务所属用户
+atrm <job_number>   删除指定编号的任务
+batch               在系统负载水平允许时调用任务
+
+# 命令详解
+# at [-q queue] [-f file] [-mMlv] <timespec>
+# at [-q queue] [-f file] [-mMkv] [-t time]
+# at -c <job_number>
+# at [-rd] <job_number> | atrm <job_number>
+# at -b | batch
+# atq [-q queue]
+-l              等于命令atq
+-r,-d           等于命令atrm
+-b              等于命令batch
+-q <queue>      指定任务所在队列
+                <queue>由单个字母组成, 从a到z, A到Z
+                at的默认队列是a, batch的默认队列是b
+                队列的字母越大, 优先级越高, 特殊队列=存放正则执行的任务
+                提交到大写字母队列的任务被作为batch执行
+-m              任务执行完毕时发送邮件给用户
+-M              不发送邮件给用户
+-f <file>       从文件中读取需要执行的任务
+-t <time>       以[[CC]YY]MMDDhhmm[.ss]格式指定任务的运行时间
+-v              在读取任务前显示任务的执行时间
+-c              列出任务执行的命令内容
+<timespec>      3天后下午4点 => at 4pm + 3 days
+                7月31日早上10点 => at 10am Jul 31
+                明天凌晨1点 => at 1am tomorrow
+                5分钟后执行 => at now + 5 minutes
