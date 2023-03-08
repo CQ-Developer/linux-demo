@@ -79,3 +79,6 @@ cd /lib/modules/$(uname -r)/kernal
 
 # 产生数字序列
 seq
+
+# uptime
+查看系统的启动时长和负载情况
