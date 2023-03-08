@@ -1,0 +1,20 @@
+crontab命令用于周期性的执行任务
+
+为了安全考虑, 通过以下配置文件限制能够执行crontab命令的用户, 优先级由高到底
+/etc/cron.allow文件, 相当于白名单, 写入该文件的用户才能执行crontab命令
+/etc/cron.deny文件, 相当于黑名单, 写入此文件的用户不能执行crontab命令
+
+使用crontab命令建立的任务会被记录到/var/spool/cron中
+cron执行的每一项任务都会被记录到/var/log/cron中
+
+crontab [-u <user>] [-i] {-e | -l | -r}
+-u <user>    只有root才能执行, 帮助制定用户建立cron任务
+-e           编辑crontab任务
+-l           查看crontab任务
+-r           删除crontab任务
+-i           在执行删除前, 提示让用户确认
+
+需要编辑系统的周期性任务, 可以直接编辑/etc/crontab
+若编辑后没有正常启动, 可以重新cron服务, systemctl restart cron
+也可以将任务写到/etc/cron.d/目录下
+或直接将脚本写入/etc/cron.daily, /etc/cron.hourly, /etc/cron.monthly, /etc/cron.weekly
