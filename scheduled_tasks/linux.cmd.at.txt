@@ -1,8 +1,8 @@
 # 计划任务的两种方式: at 和 cron
+它们的执行计划都是以分钟为单位, 既每分钟的整点
 
 at可以处理只执行一次就结束的任务
-crontab可以让任务周期性的执行
-除了命令之外还可以通过编辑/etc/crontab
+crontab可以让任务周期性的执行, 除了命令之外还可以通过编辑/etc/crontab
 
 # 重启atd服务
 systemctl restart atd
