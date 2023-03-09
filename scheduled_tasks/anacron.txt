@@ -1,0 +1,40 @@
+anacron的作用是让为按时执行的任务, 再次被执行
+
+
+anacron的配置文件是/etc/anancron
+通过man 5 anacrontab查看具体的配置格式
+
+anacron报错timestamp文件的默认目录/var/spool/anacron
+每个任务都会在该目录下存在一个对应的目录
+
+
+# 使用方式一
+anacron [-V|-h]
+-V    显示程序的版本信息
+-h    显示程序的帮助信息
+
+
+# 使用方式二
+anacron -T [-t anacrontab]
+-T               检查测试文件的合法性
+-t anacrontab    指定配置文件而不是使用默认的
+
+
+# 使用方式三
+anacron [-S spooldir] -u [-t anacrontab] [job] ...
+-S spooldir      将timestamps文件保存在特定的目录中
+-u               仅更新任务的timstamps而不执行
+-t anacrontab    指定配置文件而不是使用默认的
+job              由/etc/anacrontab定义的任务名称
+
+
+# 使用方式四
+anacron [-s] [-f] [-n] [-d] [-q] [-t anacrontab] [-S spooldir] [job]...
+-s               串行执行任务
+-f               忽略timestamps强制执行任务
+-n               立即执行任务, 默认启用-s
+-d               不会将消息fork到后台, 会将消息输出到stderr, syslog, mail
+-q               将消息输出到stderr, 仅能和-d一起使用
+-t anacrontab    指定配置文件而不是使用默认的
+-S spooldir      将timestamps文件保存在特定的目录中
+job              由/etc/anacrontab定义的任务名称
