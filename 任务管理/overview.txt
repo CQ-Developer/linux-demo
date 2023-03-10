@@ -1,0 +1,37 @@
+# 将一个任务直接放到后台运行
+# 最后的&符号会将任务放到后台执行
+tar -cvz -f etc.tar.gz /etc &
+
+# 虽然任务在后台执行
+# 但是依然会将执行过程中的信息输出到前台
+# 可以通过数据量重定向解决该问题
+tar -cvz -f etc.tar.gz /etc > /tmp/tar.log 2>&1 &
+
+# 将一个正在执行的任务放到后台
+# 并将任务置于Stopped状态
+Ctrl+z
+
+# 让后台处于Stopped状态任务继续执行
+# 注意可以不用%号，但是为了和kill命令统一，习惯性的还是写上
+bg %<job_number>
+
+# 查看当前bash的后台有哪些任务
+jobs [option]... [jobspec]...
+-l    在输出中加上PID
+-p    仅列出PID
+-n    仅列出自上次查询后状态发生变化的job
+-r    仅列出Running状态的job
+-s    仅列出Stopped状态的job
+
+# 把后台的任务拿到前台执行
+# 注意可以不用%号，但是为了和kill命令统一，习惯性的还是写上
+fg %<job_number>
+
+# 杀掉不想继续执行的任务
+kill [option]... <pid | %<job_number>>
+-l,-L        展示有哪些signal可以发送
+-<signal>    发送信号
+             常用的有1,9,15
+
+# 强制删除后台任务1
+kill -9 %1
