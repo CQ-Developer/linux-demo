@@ -35,3 +35,8 @@ kill [option]... <pid | %<job_number>>
 
 # 强制删除后台任务1
 kill -9 %1
+
+# 在远程登录主机的情况下
+# 如果终端断链，那么后台的任务也会全部停止
+# 可以通过nohup方式执行
+nohup [command] [&]
