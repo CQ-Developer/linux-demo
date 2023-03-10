@@ -89,3 +89,6 @@ jobs
 # 限制用户资源
 ulimit
 /etc/security/limit.conf
+
+# 让程序暂停
+sleep
