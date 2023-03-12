@@ -1,0 +1,69 @@
+ps - 静态的查询当前系统中存在进程和它们的资源消耗情况
+ps命令的选项和参数比较杂乱,简单的记住几种使用方式就行
+简单的记住下面几种使用方式就行
+ps -l   <= 仅查看自己的bash相关进程
+ps -lA  <= 查看系统中所有进程
+ps aux  <= 查看系统中所有进程
+ps axjf <= 包含部分进程树状态
+
+ps - l
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000   82565   82543  0  80   0 -  5432 do_wai pts/2    00:00:00 bash
+4 R  1000   85567   82565  0  80   0 -  5429 -      pts/2    00:00:00 ps
+
+# F 代表进程标识, 说明进程的权限
+4表示此进程的权限为root
+1表示此子进程仅执行复制(fork), 而没有实际执行(exec)
+
+# S 表示进程当前的状态(STAT)
+R(Running) 表示进程正在运行中
+S(Sleep) 表示进程正在睡眠中, 可以被唤醒
+D 表示不可被唤醒的睡眠状态, 通常出现在等待IO状态
+T(Stopped) 表示停止状态, 可能在任务控制或停止状态
+Z(Zombie) 表示僵尸状态, 进程已经终止但服务被删除至内存外
+
+# UID/PID/PPID
+进程所属的UID
+进程的PID
+进程的父进程PID
+
+# C
+表示CPU使用率, 单位百分比
+
+# PRI/NI
+PRI是priority的缩写, NI是nice的缩写, 表示被CPU执行的优先级
+数值越小表示优先级越高, 越快被CPU执行
+
+# ADDR/SZ/WCHAN 都与内存相关
+ADDR 是kernel function, 指出该进程在内存的哪个部分, 如果是running进程则一般显示-
+SZ 表示进程占用的内存
+WCHAN 表示进程是否在运行, 同样-表示正在运行中
+
+# TTY
+表示登录用户的终端位置
+
+# TIME
+使用的CPU时间, 是此进程实际花费的CPU运行时间
+
+# CMD 是command的缩写
+表示触发此进程的命令
+
+ps aux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.0 168044 12048 ?        Ss   Mar07   0:09 /lib/systemd/systemd splash --system --deserialize 23
+root           2  0.0  0.0      0     0 ?        S    Mar07   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<   Mar07   0:00 [rcu_gp]
+
+USER 进程所属用户
+PID 进程ID
+%CPU 进程使用的CPU资源百分比
+%MEM 进程占用的物理内存百分比
+VSZ 进程占用的虚拟内存
+RSS
+
+
+
+top - 动态的查询系统中存在的进程和它们的资源消耗情况
+pstree
+kill
+killall
