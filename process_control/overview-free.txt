@@ -1,0 +1,18 @@
+# 显示系统内存使用情况
+
+free [option]...
+
+-b  :以 bytes 作为内存计量单位
+-k  :以 kibibytes 作为内存计量单位(默认)
+-m  :以 mebibytes 作为内存计量单位
+-g  :以 gibibytes 作为内存计量单位
+-h  :自动计算合适的内存计量单位
+
+-w  :款模式, buffers和cache在两栏中展示
+
+-c count  :统计多少次
+-s delay  :每次统计延时多少秒
+
+-t  :新增一行显示统计信息
+
+--si  :使用1000作为进位而不是1024
