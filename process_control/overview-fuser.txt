@@ -1,0 +1,25 @@
+fuser 显示正在使用某个文件或文件系统的进程
+
+fuser -l  :列出可以发送的signal
+
+fuser -V  :显示程序的版本信息
+
+fuser [-fuv] [-a|-s] [-c|-m|-n space] [-k [-i] [-M] [-w] [-SIGNAL]] name ...
+-f  :默默忽略, 用于POSIX兼容
+-u  :显示进程的所属用户
+-v  :显示详细信息
+
+-a  :显示命令行中指定的所有文件, 默认只显示至少被一个进程访问的文件
+-s  :安静模式, 忽略-u和-v, 不能和-a同时使用
+
+-c        :与-m相同, POSIX兼容
+-m NAME   :列出访问该文件所在文件系统的所有进程, 如果是目录则提升到根目录
+-n SPACE  :选择不同的命名空间(manpage)
+
+-k       :发送kill signal, 可以通过-SINGAL指定其他signal
+-i       :以交互模式发送signal
+-M       :仅当NAME是关在点时才发送signal
+-w       :仅当进程有写权限时才执行-k, 必须与-k同时使用
+-SIGNAL  :发送指定的信号, 可以通过-l选项查看
+
+name  :文件名
