@@ -64,6 +64,6 @@ RSS
 
 
 top - 动态的查询系统中存在的进程和它们的资源消耗情况
-pstree
-kill
-killall
+pstree - 展示线程树
+kill - 向某个进程发送信号
+killall - 向某一类命令的进程发送信号
