@@ -1,0 +1,7 @@
+调整进程的优先级
+
+# 新启动的线程
+nice [-n number] command
+
+# 已启动的线程
+renice number PID
