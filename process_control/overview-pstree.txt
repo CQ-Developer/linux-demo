@@ -1,0 +1,21 @@
+pstree [-a, --arguments]
+       [-c, --compact-not]
+       [-C, --color attr]
+       [-g, --show-pgids]
+       [-h, --highlight-all, -H pid, --highlight-pid pid]
+       [-l, --long]
+       [-n, --numeric-sort]
+       [-N, --ns-sort ns]
+       [-p, --show-pids]
+       [-s, --show-parents]
+       [-S, --ns-changes]
+       [-t, --threadnames]
+       [-T, --hide-threads]
+       [-u, --uid-changes]
+       [-Z, --security-context]
+       [-A, --ascii, -G, --vt100, -U, --unicode]
+       [pid, user]
+
+pstree -V, --version
+
+具体可以看manpage, 写的非常清楚
