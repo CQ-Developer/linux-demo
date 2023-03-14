@@ -1,0 +1,11 @@
+pidof - find the process ID of a running program
+
+列出某个程序的PID
+
+pidof [option]... {program}...
+-s  :仅列出一个PID
+-x  :列出PPID
+
+# 示例一
+# 列出 systemd 和 rsyslogd 这两个程序的 PID
+pidof systemd rsyslogd
