@@ -1,0 +1,56 @@
+lsof - list open file
+
+列出被进程使用的文件系统名称
+
+# lsof的manpage比较复杂, 这里书中比较简单的格式
+lsof [-aUu] [+d]
+-a  :多个数据需要同时成立才显示结果
+-U  :列出unix-like系统的socket文件类型
+-u u  :列出用户u相关进程使用的文件
++d s  :仅列出目录s下被使用的文件
+
+# 示例一
+# 列出系统上所有已被开启的文件和设备
+lsof
+# 输出
+COMMAND    PID TID TASKCMD USER   FD      TYPE             DEVICE SIZE/OFF       NODE NAME
+init         4             root  cwd       DIR               8,32     4096          2 /
+init         4             root  rtd       DIR               8,32     4096          2 /
+init         4             root  txt       REG                0,2  1955960          5 /init
+init         4             root    0u      CHR                1,3      0t0          3 /dev/null
+...
+
+# 示例二
+# 仅列出和root用户相关的socket文件
+# 注意[-a]选项使得[-u root]和[-U]两个选项必须同时满足
+lsof  -u root -a -U
+# 输出
+COMMAND   PID USER   FD   TYPE             DEVICE SIZE/OFF  NODE NAME
+init        4 root    5u  unix 0x00000000856ae10b      0t0 16442 type=STREAM
+SessionLe   7 root    4u  unix 0x000000000dae862d      0t0 16441 type=STREAM
+SessionLe   7 root    7u  unix 0x0000000019f308d1      0t0 16471 /run/WSL/1_interop type=STREAM
+Relay(9)    8 root    4u  unix 0x000000000dae862d      0t0 16441 type=STREAM
+Relay(9)    8 root    7u  unix 0x0000000019f308d1      0t0 16471 /run/WSL/1_interop type=STREAM
+...
+
+# 示例三
+# 列出系统中所有被使用的设备
+lsof +d /dev
+# 输出
+COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+init        4 root    0u   CHR    1,3      0t0    3 /dev/null
+init        4 root    1u   CHR    1,3      0t0    3 /dev/null
+init        4 root    2w   CHR   1,11      0t0    8 /dev/kmsg
+SessionLe   7 root    0u   CHR    1,3      0t0    3 /dev/null
+...
+
+# 显示属于root的bash这个程序开启的文件
+lsof -u root | grep bash
+# 输出
+bash      1992 root  cwd       DIR               8,32     4096      40961 /root
+bash      1992 root  rtd       DIR               8,32     4096          2 /
+bash      1992 root  txt       REG               8,32  1183448      10633 /usr/bin/bash
+bash      1992 root  mem       REG               8,32    51856      37895 /usr/lib/x86_64-linux-gnu/libnss_files-2.31.so
+...
+
+每一列输出的所代表的意义, 可以查看manpage的OUTPUT章节
