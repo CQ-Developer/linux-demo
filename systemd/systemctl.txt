@@ -118,3 +118,19 @@ systemctl set-default multi-user.target
 # 示例四
 # 将目前操作环境切换到出命令行模式
 system isolate multi-user.target
+
+
+
+四、使用systemctl分析服务间的依赖性
+
+systemctl --reverse list-dependencies {unit}
+--reverse  :反向追踪哪些unit使用当前unit
+
+# 示例一
+# 列出当前操作环境使用了哪些unit
+# 先使用get-default查看当前所在的操作环境, 假设为multi-user.target
+systemctl list-dependencies multi-user.target
+
+# 示例二
+# 列出哪些unit使用了当前的操作环境
+systemctl --reverse list-dependencies multi-user.target
