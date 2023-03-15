@@ -8,3 +8,26 @@
 /run/systemd/system/
 
 systemd的unit类型可以直接查看/usr/lib/systemd/system目录下的脚本的后缀名
+
+/usr/lib/systemd/system
+一般从官方安装的软件, 启动脚本都会放在这里
+尽量不要修改它, 如果要修改就到/etc/systemd/system下面去修改
+
+/run/systemd/system
+系统运行中产生的服务脚本, 这些脚本的优先级比/usr/lib/systemd/system下的脚本高
+
+/etc/systemd/system
+依据系统需求送建立的执行脚本, 优先级比/run/systemd/system下的脚本高
+
+/etc/sysconfig
+几乎所有的服务都会将初始化的一些选项设置写入到该目录
+
+/etc/sysconfig/network-scripts
+网络设置会放在这个目录内
+
+/var/lib
+一般会产生数据的服务, 会将它的数据写入该目录中
+
+/run
+放置了很多缓存, 包括lock文件和PID文件
+可以通过systemctl list-sockets命令查看正在监听本地服务的socket

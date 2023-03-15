@@ -134,3 +134,11 @@ systemctl list-dependencies multi-user.target
 # 示例二
 # 列出哪些unit使用了当前的操作环境
 systemctl --reverse list-dependencies multi-user.target
+
+
+
+五、systemd运行过程中相关的目录
+
+# 示例一
+# 列出运行中产生了哪些socket文件
+systemctl list-sockets
