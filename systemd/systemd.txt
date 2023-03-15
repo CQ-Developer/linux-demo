@@ -1,0 +1,10 @@
+# 配置文件地址
+/etc/systemd/system/
+
+# 主启动脚本
+/usr/lib/systemd/system/
+
+# 运行中产生的脚本
+/run/systemd/system/
+
+systemd的unit类型可以直接查看/usr/lib/systemd/system目录下的脚本的后缀名

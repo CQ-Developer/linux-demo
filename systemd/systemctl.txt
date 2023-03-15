@@ -1,0 +1,48 @@
+systemctl - 管理系统服务
+
+systemctl [command] [unit]
+
+command:
+    start       :启动服务
+    stop        :关闭服务
+    restart     :重启服务
+    reload      :重新加载配置
+    enable      :开机启动
+    disable     :不开机启动
+    status      :查看服务状态
+    is-active   :查看服务是否在运行中
+    is-enabled  :查看服务是否开机启动
+
+# 服务的状态
+active(running)  :运行中
+active(exited)   :仅执行一次既正常结束的服务
+active(waiting)  :执行中但正在等待被触发
+inactive         :不在运行中
+
+# 服务的默认状态
+enable   :开机时启动
+disable  :开机时不启动
+static   :不能开机启动, 但能被其他开机启动的服务唤醒
+mask     :服务被注销无法开机启动, 通过systemctl unmask方式改回默认状态
+
+# 示例一
+# 启动 atd 服务
+systemctl start atd.service
+
+# 示例二
+# 查询 atd 服务的状态
+systemctl status atd.service
+
+# 示例三
+# 停止 atd 服务
+systemctl stop atd.service
+
+# 示例四
+# 注销 cups.service 服务
+# 注销的本质是将启动脚本链接到/dev/null
+systemctl stop cups.service
+systemctl mask cups.service
+
+# 示例五
+# 恢复 cups.service 服务
+systemctl unmask cups.service
