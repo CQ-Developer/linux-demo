@@ -76,3 +76,45 @@ systemctl list-units --type=service --all
 # 示例四
 # 查询名称为包含cpu的服务
 systemctl list-units --type=service --all | grep cpu
+
+
+
+三、管理不同操作环境
+
+systemctl [command] [unit.target]
+
+[command]
+    get-default  :取得目前的unit.target
+    set-default  :设置unit.target为默认模式
+    isolate      :切换到unit.target模式
+
+# systemctl提供的几个快捷命令
+systemctl poweroff   <= 关机
+systemctl reboot     <= 重启
+systemctl suspend    <= 进入挂起模式
+systemctl hibernate  <= 进入休眠模式
+systemctl rescue     <= 强制进入恢复模式
+systemctl emergency  <= 强制进入紧急恢复模式
+
+# 示例一
+# 查询和操作界面相关的服务
+systemctl list-units -t target --all
+# 输出中比较常用的几种操作模式
+graphical.target   :图形化界面和命令行模式
+multi-user.target  :纯命令行模式
+rescue.target      :恢复模式
+emergency.target   :紧急处理系统错误, 在rescue.target无法使用的情况下, 可以尝试使用这种模式
+shutdown.target    :关机模式
+getty.target       :可设置想要几个tty等操作
+
+# 示例二
+# 查看默认的操作模式
+systemctl get-default
+
+# 示例三
+# 将默认操作模式改为命令行模式
+systemctl set-default multi-user.target
+
+# 示例四
+# 将目前操作环境切换到出命令行模式
+system isolate multi-user.target
