@@ -2,7 +2,7 @@ systemctl - 管理系统服务
 
 systemctl [command] [unit]
 
-command:
+[command]
     start       :启动服务
     stop        :关闭服务
     restart     :重启服务
@@ -46,3 +46,31 @@ systemctl mask cups.service
 # 示例五
 # 恢复 cups.service 服务
 systemctl unmask cups.service
+
+
+
+查看系统上有哪些服务
+
+systemctl [command] [--type=TYPE] [--all]
+
+[command]
+    list-units       :依据unit显示目前已启动的服务, 添加--all选项则显示所有
+    list-unit-files  :依据/usr/lib/systemd/system目录内的文件, 将所有文件列表说明
+
+Type  :unit的类型, service, target, socket 等...
+
+# 示例一
+# 查看系统上已启动的unit
+systemctl
+
+# 示例二
+# 列出所有已安装的服务
+systemctl list-unit-files
+
+# 示例三
+# 列出所有的service类型的unit
+systemctl list-units --type=service --all
+
+# 示例四
+# 查询名称为包含cpu的服务
+systemctl list-units --type=service --all | grep cpu
