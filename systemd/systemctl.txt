@@ -1,5 +1,7 @@
 systemctl - 管理系统服务
 
+一、管理系统服务
+
 systemctl [command] [unit]
 
 [command]
@@ -49,7 +51,7 @@ systemctl unmask cups.service
 
 
 
-查看系统上有哪些服务
+二、查看系统上有哪些服务
 
 systemctl [command] [--type=TYPE] [--all]
 
