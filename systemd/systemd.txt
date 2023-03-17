@@ -34,3 +34,16 @@ systemd的unit类型可以直接查看/usr/lib/systemd/system目录下的脚本�
 
 /etc/services
 可以在该文件中查看服务与端口的对应关系
+
+# 如果想自定义service类型的systemd启动配置文件
+# 以 /usr/lib/systemd/system/vsftpd.service 为例
+官方不建议直接修该启动配置文件, 推荐修改 /etc/systemd/system 下的启动配置文件:
+1. 在 /etc/systemd/system 下创建同名的目录 /etc/systemd/system/vsftpd.service.d
+2. 在目录 /etc/systemd/system/vsftpd.service.d 下创建配置文件 configfile.conf,
+   该文件的内容会累加到 /usr/lib/systemd/system/vsftpd.service 中
+3. 可以建立 /etc/systemd/system/vsftpd.service.want 目录,
+   此目录存放连接文件, 意思是启动 vsftpd.service 之后, 最好再加上此目录下的服务
+4. 可以建立 /etc/systemd/system/vsftpd.service.requires 目录,
+   此目录方式连接文件, 意思是启动 vsftpd.service 之前, 需要事先启动的服务
+
+以上只是大致操作, 这里不需要特别深入, 将来如果用到了, 回来查书
