@@ -1,0 +1,20 @@
+控制NetworkManager的命令行工具 nmcli
+
+# 查看系统默认的连接代号
+nmcli connection show
+# 输出
+NAME             UUID                                  TYPE    DEVICE          
+CQ_5G            b8243dc5-80d1-4237-9c98-6cc84e34bb9b  wifi    wlp2s0          
+br-c30c04809c36  7a315584-def2-4d2e-b93c-e78e923dbb21  bridge  br-c30c04809c36 
+docker0          d1ece56f-8206-4dbb-a271-08ae4abd0cd3  bridge  docker0         
+202              bb070406-255e-4dfd-a2f3-2a551e5d1955  wifi    --
+
+以上输出说明
+NAME   - 连接代号
+UUID   - 设备代码
+TYPE   - 网卡类型
+DEVICE - 网卡名称
+
+# 查看指定连接代号的配置
+nmcli connection show CQ_56
+# 输出
