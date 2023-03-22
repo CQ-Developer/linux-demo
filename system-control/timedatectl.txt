@@ -1,0 +1,34 @@
+timedatectl - 控制系统的时间和日期
+
+# 显示系统时间信息
+chen@WGC1NJ1W4DTQ2:~$ timedatectl
+               Local time: Wed 2023-03-22 10:59:03 CST
+           Universal time: Wed 2023-03-22 02:59:03 UTC
+                 RTC time: Wed 2023-03-22 02:59:03
+                Time zone: Asia/Shanghai (CST, +0800)
+System clock synchronized: yes
+              NTP service: inactive
+          RTC in local TZ: no
+
+# 查询是否有纽约时区
+chen@WGC1NJ1W4DTQ2:~$ timedatectl list-timezones | grep New_York
+America/New_York
+
+# 将时区设置为纽约
+chen@WGC1NJ1W4DTQ2:~$ sudo timedatectl set-timezone America/New_York
+chen@WGC1NJ1W4DTQ2:~$ timedatectl
+               Local time: Wed 2023-03-22 06:51:02 EDT
+           Universal time: Wed 2023-03-22 10:51:02 UTC
+                 RTC time: Wed 2023-03-22 06:51:02
+                Time zone: America/New_York (EDT, -0400)
+System clock synchronized: no
+              NTP service: inactive
+          RTC in local TZ: no
+
+# 设置时间
+# 格式为 yyyy-mm-dd HH:MM
+chen@WGC1NJ1W4DTQ2:~$ timedatectl set-time "2023-03-22 14:56"
+
+# 手动网络校时
+chen@WGC1NJ1W4DTQ2:~$ sudo ntpdate ntp.aliyun.com
+22 Mar 15:02:15 ntpdate[7449]: step time server 203.107.6.88 offset -14345.167093 sec
