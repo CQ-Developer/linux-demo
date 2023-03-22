@@ -1,0 +1,24 @@
+hostnamectl - 修改主机名
+
+# 显示当前主机名与相关信息
+chen@WGC1NJ1W4DTQ2:~$ hostnamectl
+   Static hostname: WGC1NJ1W4DTQ2
+         Icon name: computer-container
+           Chassis: container
+        Machine ID: e02587cf5c9854109e634d8c6406ef60
+           Boot ID: 5d353e02c35e488881ecd132f2785d1c
+    Virtualization: wsl
+  Operating System: Ubuntu 20.04.6 LTS
+            Kernel: Linux 5.15.90.1-microsoft-standard-WSL2
+      Architecture: x86-64
+
+# 输出说明
+Static hostname  => 主机名
+Operating System => 操作系统名称
+Kernel           => 内核版本
+Architecture     => 硬件架构
+
+# 修改主机名
+chen@WGC1NJ1W4DTQ2:~$ sudo hostnamectl set-hostname www.ubuntu.cq
+chen@WGC1NJ1W4DTQ2:~$ cat /etc/hostname
+www.ubuntu.cq
