@@ -1,20 +1,47 @@
 控制NetworkManager的命令行工具 nmcli
 
+# 几个常见的网络名词
+IP
+netmask 子网掩码
+gateway 网关
+DNS
+DHCP协议 网络参数可自动获取
+
 # 查看系统默认的连接代号
 nmcli connection show
 # 输出
 NAME             UUID                                  TYPE    DEVICE          
-CQ_5G            b8243dc5-80d1-4237-9c98-6cc84e34bb9b  wifi    wlp2s0          
+eth0             b8243dc5-80d1-4237-9c98-6cc84e34bb9b  wifi    wlp2s0          
 br-c30c04809c36  7a315584-def2-4d2e-b93c-e78e923dbb21  bridge  br-c30c04809c36 
 docker0          d1ece56f-8206-4dbb-a271-08ae4abd0cd3  bridge  docker0         
 202              bb070406-255e-4dfd-a2f3-2a551e5d1955  wifi    --
-
-以上输出说明
+# 以上输出说明
 NAME   - 连接代号
 UUID   - 设备代码
 TYPE   - 网卡类型
 DEVICE - 网卡名称
 
 # 查看指定连接代号的配置
-nmcli connection show CQ_56
-# 输出
+nmcli connection show eth0
+# 输出(仅列出部分)
+connection.autoconnect   [yes|no]          # 是否自动连接这个网络
+ipv4.method              [auto|manul]      # 自动或手动设置网络参数
+ipv4.dns                 [dns_server_ip]   # DNS服务器的IP地址
+ipv4.addresses           [IP/netmask]      # IP地址/子网掩码的集合
+ipv4.gateway             [gw_ip]           # gateway的IP地址
+
+# 设置网络参数
+nmcli connection modify eth0 \
+connection.autoconnect yes \
+ipv4.method manul \
+ipv4.addresses 172.16.1.1/16 \
+ipv4.gateway 172.16.200.254 \
+ipv4.dns 172.16.200.254
+
+# 修改完成后需要启动该网络
+nmcli connecion up eth0
+
+# 修改网络参数为自动获取DHCP
+nmcli connection modify eth0 \
+connection.autoconnect yes \
+ipv4.method auto
