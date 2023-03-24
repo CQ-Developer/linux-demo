@@ -140,3 +140,45 @@ sdc               0.00         0.00         0.00         0.00          0        
 Device             tps    kB_read/s    kB_wrtn/s    kB_dscd/s    kB_read    kB_wrtn    kB_dscd
 sdc               0.00         0.00         0.00         0.00          0          0          0
 ```
+
+</br>
+
+> ## smartctl
+
+smartd服务
+
+**SMART** 是 *Self-Monitoring Analysis and Reporting Technology System* 的缩写, 主要用来检测ATA和SCSI接口的磁盘, 被检测的磁盘必须支持SMART协议.
+
+```shell
+# 查看磁盘sda
+
+chen@WGC1NJ1W4DTQ2:~$ sudo smartctl -a /dev/sda
+smartctl 7.1 2019-12-30 r5022 [x86_64-linux-5.15.90.1-microsoft-standard-WSL2] (local build)
+Copyright (C) 2002-19, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF INFORMATION SECTION ===
+Vendor:               Msft
+Product:              Virtual Disk
+Revision:             1.0
+Compliance:           SPC-3
+User Capacity:        380,686,336 bytes [380 MB]
+Logical block size:   512 bytes
+LU is thin provisioned, LBPRZ=0
+>> Terminate command early due to bad response to IEC mode page
+A mandatory SMART command failed: exiting. To continue, add one or more '-T permissive' options.
+
+# 注意虚拟磁盘不支持SMART协议
+```
+
+```shell
+# 执行磁盘检测
+
+chen@WGC1NJ1W4DTQ2:~$ sudo smartctl -t short /dev/sda
+smartctl 7.1 2019-12-30 r5022 [x86_64-linux-5.15.90.1-microsoft-standard-WSL2] (local build)
+Copyright (C) 2002-19, Bruce Allen, Christian Franke, www.smartmontools.org
+
+Short offline self test failed [unsupported field in scsi command]
+
+# 注意虚拟磁盘不支持SMART协议
+# 检测之后可以再检查下磁盘会发现多出了检测的结果
+```
