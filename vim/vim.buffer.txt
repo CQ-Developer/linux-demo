@@ -1,0 +1,27 @@
+# 查看缓冲区中文件
+:ls
+:buffers
+:files
+
+# 使用命令编辑其他文件
+# 实际上就是将其他文件添加到缓冲区中
+:e other/files
+
+# 在缓冲去间进行切换
+# 相当于编辑其他文件
+:b 1
+:b filename
+:b keywords[Tab]
+
+# 在文件缓冲区中直接跳到前一个和后一个
+:bn
+:bnext
+:bp
+:bprevious
+
+# 将不在需要的缓冲区关闭
+# 先保存否则报错
+:bd 1
+:bdel 2
+:bdelete 3
+
