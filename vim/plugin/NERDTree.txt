@@ -1,4 +1,5 @@
 # 插件地址
+# 该插件的作用主要时模拟出一个目录树
 https://github.com/scrooloose/nerdtree
 
 # 通过命令启动NERDTree目录树
