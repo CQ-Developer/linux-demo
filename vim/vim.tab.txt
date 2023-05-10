@@ -1,0 +1,27 @@
+# 创建一个空白的新tab页或在新tab页打开一个文件
+:tabe[dit] [filename]
+:tabnew [filename]
+
+# 移动到第一个tab页
+:tabfir[st]
+
+# 移动到最后一个tab页
+tabl[ast]
+
+# 移动到下一个tab页
+gt
+:tabn[ext]
+
+# 移动到上一个tab页
+gT
+:tabN[ext]
+:tabp[revious]
+
+# 关闭tab页
+:tabc[lose]
+
+# 将当前tab页移动到第N个tab页之后
+# 不指定N将当前tab页移动到最后一个
+# 指定N为0将当前tab页移动到第一个
+:tabm[ove] [N]
+
