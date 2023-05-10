@@ -1,0 +1,15 @@
+# vim自带的目录树功能Netrw
+
+# 若指定dir则打开指定的目录
+# 否则当前文件所在的目录
+:Ex[plore] [dir]
+
+# 左右分割方式打开Netrw
+:Vex[plore]
+
+# 上下分割方式打开Netrw
+:Sex[plore]
+
+# 最左侧满高度打开Netrw
+:Lex[plore]
+
