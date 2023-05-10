@@ -41,9 +41,56 @@ cc - 清楚整行内容，但停留在原有的缩进位置，编程时比较方
 :b keywords[Tab]
 
 # 在文件缓冲区中直接跳到前一个和后一个
-:bn :bnext
-:bp :bprevious
+:bn
+:bnext
+:bp
+:bprevious
 
 # 将不在需要的缓冲区关闭
 # 先保存否则报错
-:bd :bdel :bdelete
+:bd 1
+:bdel 2
+:bdelete 3
+
+# 垂直切分处一个新窗口
+:sp path/file
+:split path/file
+
+# 水平切分处一个新窗口
+:vs path/file
+:vsplit path/file
+
+# 切换到不同窗口
+Ctrl+w_(h | j | k | l)
+Ctrl+w,(h | j | k | l)
+
+# 关闭窗口
+Ctrl+w_q 关闭当前窗口
+:q 关闭当前窗口并卸载缓冲区
+:bd 卸载缓冲区并关闭窗口
+Ctrl+w,o | Ctrl+w_o | :on | :only 关闭其他所有窗口
+
+# 关闭所有窗口和缓冲区并退出
+:qa
+:wqa 保存
+
+# 移动窗口
+Ctrl+w,H 将窗口移动到左边
+Ctrl+w,J 将窗口移动到下边
+Ctrl+w,K 将窗口移动到上边
+Ctrl+w,L 将窗口移动到右边
+Ctrl+w_r Ctrl+w,r 将窗口向右或向下移动   Ctrl+w,R Ctrl_R 反向
+Ctrl+w_x Ctrl+w,x 将窗口与下一个窗口交换
+
+# 调整窗口大小
+Ctrl+w_= 重置窗口大小
+(:res | :resize) N 设定窗口高度为N行
+(:res | :resize) +N 增加窗口高度N行
+(:res | :resize) -N 减少窗口高度N行
+(:vert res | :vertical resize) N 设定窗口宽度为N列
+(:vert res | :vertical resize) +N 增加窗口宽度N列
+(:vert res | :vertical resize) +N 增加窗口宽度N列
+Ctrl+w_- 减少窗口高度1行
+Ctrl+w_+ 增加窗口高度1行
+Ctrl+w_> 增加窗口宽度1列
+Ctrl+w_< 减少窗口宽度1列
