@@ -1,0 +1,19 @@
+# 插件地址
+https://github.com/scrooloose/nerdtree
+
+# 通过命令启动NERDTree目录树
+:NERDTree
+
+# 在光标所在的目录设置书签
+:Bookmark
+
+# 列出所有书签
+B
+
+# 在NORDTree中保持书签显示
+# 在.vimrc配置文件中设置如下值
+let NERDTreeShowBookmars = 1
+
+# 隐藏NERDTree窗口
+:NERDTreeToggle
+
