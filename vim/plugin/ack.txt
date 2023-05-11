@@ -1,0 +1,11 @@
+安装ack(可选 与vim无关)
+sudo apt install ack-grep
+
+使用ack进行搜索代码
+ack --python Animal
+
+在vim中使用ack
+下载插件 https://github.com/mileszs/ack.vim
+
+在vim中使用ack插件
+:Ack --python Animal
