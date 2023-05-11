@@ -1,0 +1,26 @@
+搜索关键字
+/<keyword> 向下搜索关键字keyword
+?<keyword> 向上搜索关键字keyword
+
+跳转搜索结果
+n 跳转到下一个搜索结果
+N 跳转到上一个搜索结果
+
+高亮搜索结果
+:set hlsearch 启用高亮搜索结果功能
+:noh          清除高亮显示(注意不是关闭高亮功能)
+
+快速定位到搜索结果
+set incsearch
+
+跨文件搜索
+:grep    调用系统命令grep
+:vimgrep 该命令属于vim的一部分(并非调用系统的grep)
+
+vimgrep用法
+:vimgrep <pattern> <path>
+pattern 可以是字符串或vim风格的正则表达式
+path    搜索的路径, 通常包含通配符, **表示对目录进行递归搜索, 如**/*.py
+:cn     跳转到下一个搜索结果
+:cp     跳转到上一个搜索结果
+:copen  打开搜索结果列表
