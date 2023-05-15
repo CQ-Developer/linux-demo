@@ -1,0 +1,8 @@
+终端模式
+该模式只是打开了一个新的window，并在该window中启用一个默认的bash
+
+:termial | :term
+进入终端模式
+
+:term ls -Al
+可以通过终端模式直接执行命令
