@@ -1,0 +1,10 @@
+vim中有3中视图模式
+
+visual 模式
+使用命令 v 进入该模式
+
+visual line 模式
+使用命令 V 进入该模式
+
+visual block 模式
+使用组合命令 <Ctrl-v> 进入该模式
