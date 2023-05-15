@@ -27,3 +27,12 @@ cc - 清楚整行内容，但停留在原有的缩进位置，编程时比较方
 
 # 重新加载.vimrc配置文件
 :source $MYVIMRC
+
+# vim启动时间分析
+# 会将启动耗时记录到startuptime.log文件中，文件名可以自定义
+vim --startuptime startuptime.log
+
+# 也可以在vim运行期间执行如下命令，vim将分析执行的每个行为
+:profile start profile.log
+:profile func *
+:profile file *
