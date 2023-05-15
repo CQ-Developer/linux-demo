@@ -1,0 +1,21 @@
+手动管理插件
+
+vim8加载插件的方式
+在 .vim/pack/ 目录中搜索插件目录
+
+vim8支持的目录结构如下，<dir>是一个自动的目录名，比如plugins
+
+.vim/pack/<dir>/opt/
+该目录中的插件只有在执行 :packadd <dir> 之后才会被加载
+
+.vim/pack/<dir>/start/
+该目录中的插件将始终加载
+
+加载某个目录下的插件
+:packadd <dir>
+
+加载所有插件
+:packloadall
+
+为所有插件加载帮助文档
+silent! helptags ALL
