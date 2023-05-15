@@ -1,0 +1,26 @@
+https://github.com/junegunn/vim-plug.git
+
+vim插件管理器(轻量级、并行插件加载、延迟加载)
+
+编辑.vimrc文件
+call plug#begin()
+" 插件的github仓库地址的用户名和仓库名
+" https://github.com/easymotion/vim-easymotion
+Plug 'easymotion/vim-easymotion'
+" 延迟加载：只有在执行[:NERDTreeToggle]命令时才加载插件，可以使用on参数
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+" 针对不同文件类型加载插件，可以使用for参数
+Plug 'junegun/goyo.vim', { 'for': 'markdown' }
+call plug#end()
+
+安装插件
+:PlugInstall
+
+更新插件
+:PlugUpdate
+
+更新vim-plug本身
+:PlugUpgrade
+
+删除已经移除的插件
+:PlugClean
