@@ -1,0 +1,7 @@
+https://github.com/VundleVim/Vundle.vim
+
+Vundle是vim-plug的前身
+有些命令很相似：PluginInstall、PluginUpdate、PluginClean
+
+使用Vundle搜索插件
+:PluginSearch <keyword>
