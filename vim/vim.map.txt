@@ -1,8 +1,63 @@
 # 命令的重映射
 
+:help index
+查看内置的按键绑定列表
+
 :map
 用于递归映射，这意味着可以识别自定义映射
+可以查看插件和用户自定义的映射
+
+:map g
+查看所有以g建开头的映射
 
 :noremap
 用于非递归映射，针对系统默认映射
 
+:unmap
+显式移除自定义或插件定义的映射
+
+:mapclear
+将用于自定义的映射和默认映射都清除掉
+
+(.vimrc)
+noremap ; :
+用分号取代冒号，用于输入命令
+
+(.vimrc)
+noremap <c-u> :w<cr>
+使用<ctrl-u>保存文件
+
+<cr>       表示Enter键
+<enter>    表示Enter键
+<c-?>      表示Ctrl组合键
+<a-?>      表示Alt组合键
+<m-?>      表示Alt组合键
+<s-?>      表示Shift组合键
+<space>    表示Space键
+<esc>      表示Esc键
+<tab>      表示Tab键
+<up>       表示上方向键
+<down>     表示下方向键
+<left>     表示左方向键
+<right>    表示右方向键
+<pageup>   表示上翻页键
+<pagedown> 表示下翻页键
+<f1>       表示功能区F1键
+...        ...
+<f12>      表示功能区F12键
+<home>     表示Home键
+<end>      表示End键
+<insert>   表示Insert键
+<del>      表示Delete键
+bs         表示Backspace键
+<nop>      表示 no operation 无操作
+
+:map  :noremap  任何模式
+:nmap :nnoremap 普通模式
+:vmap :vnoremap 可视模式、选择模式
+:xmap :xnoremap 可视模式
+:smap :snoremap 选择模式
+:omap :onoremap 操作待决模式
+:map! :noremap! 插入模式、命令行模式
+:imap :inoremap 插入模式
+:cmap :cnoremap 命令行模式
