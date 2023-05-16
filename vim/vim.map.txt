@@ -61,3 +61,12 @@ bs         表示Backspace键
 :map! :noremap! 插入模式、命令行模式
 :imap :inoremap 插入模式
 :cmap :cnoremap 命令行模式
+
+let mapleader = "\<space>"
+修改先导键为空格
+
+noremap <leader>w :w<cr>
+使用<space_w>保存文件(注意此时<leader>以及各被定义为空格)
+
+noremap <leader>n :NERDTreeToggle<cr>
+使用先导键+字符n完成命令:NERDTreeToggle
