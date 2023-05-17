@@ -36,3 +36,6 @@ vim --startuptime startuptime.log
 :profile start profile.log
 :profile func *
 :profile file *
+
+# 在文档中跳转到光标所在连接
+ctrl + ]
