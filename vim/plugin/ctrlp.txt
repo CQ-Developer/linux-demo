@@ -31,3 +31,12 @@ CtrlP支持在缓冲区和最近使用的文件之间切换
 
 可以在.vimrc文件中配置，使ctrl+b快捷键直接列出缓冲区文件
 moremap <c-b> :CtrlPBuffer<cr>
+
+let g:ctrlp_working_path_mode = 'ra'
+将CtrlP的工作目录设置为仓库的根目录
+g:<variable>表示这是一个全局变量
+
+使用先导键重新映射CtrlP的行为
+noremap <leader>p :CtrlP<cr>
+noremap <leader>b :CtrlPBuffer<cr>
+noremap <leader>m :CtrlPMRU<cr>
