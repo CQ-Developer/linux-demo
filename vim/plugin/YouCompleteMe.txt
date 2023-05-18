@@ -1,2 +1,43 @@
 https://github.com/Valloric/YouCompleteMe
 该插件支持很多编程语言的自动补全，建议看下官方文档和wiki
+
+在 .vimrc 中添加插件地址
+Plug 'ycm-core/YouCompleteMe'
+
+安装必要的组件
+apt install build-essential cmake vim-nox python3-dev
+
+快速安装所有语言的补全
+sudo apt install mono-complete golang nodejs openjdk-17-jdk openjdk-17-jre npm
+python3.8 install.py --all
+
+Java
+sudo apt install openjdk-17-jdk openjdk-17-jre
+python3.8 install.py --java-completer
+
+C#
+sudo apt install mono-complete
+python3.8 install.py --cs-completer
+
+Go
+sudo apt install golang
+python3.8 install.py --go-completer
+
+JavaScript & TypeScript
+sudo apt install nodejs npm
+python3 install.py --ts-completer
+
+Rust
+python3.8 install.py --rust-completer
+
+let g:syntastic_java_checkers = []
+在 .vimrc 中定义此选项防止和其他诊断插件冲突
+
+let g:EclimFileValidate = 0
+在 .vimrc 中定义此选项禁用Eclim诊断
+
+:YcmDebugInfo
+检查服务端健康状态
+
+:YcmToggleLogs
+检查日志文件
