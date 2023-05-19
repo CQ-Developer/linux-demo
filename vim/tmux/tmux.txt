@@ -1,0 +1,66 @@
+sudo apt install tmux
+安装tmux
+
+https://github.com/tmux/tmux
+源码仓库
+
+tmux
+直接输入命令进入tmux面板
+
+~/.tmux.conf
+默认的配置文件
+
+<c-b>
+默认的前缀键，在tmux中需要先输入前缀键在执行命令
+
+<c-b>%
+垂直分割屏幕
+
+<c-b>"
+水平分割屏幕
+
+<c-b>方向键
+在不同的面板之间跳转
+
+<c-d>
+关闭面板并退出会话
+
+<c-b>c
+打开一个新的窗口
+
+<c-b>,
+为窗口重命名
+
+<c-b>n
+跳转到下一个窗口
+
+<c-b>p
+跳转到上一个窗口
+
+<c-b>d
+退出会话，会话会一直持续直到关机
+
+tmux list-sessions
+显示所有tmux会话
+
+tmux attach -t 0
+重新打开已经关闭的会话
+
+# 使用<c-\>作为前缀
+unbind-key C-b
+set -g prefix 'C-\'
+bind-key 'C-\' send-prefix
+
+# 使用-生成垂直分割
+bind - split-window -v
+unbind '%'
+
+# 使用|生成水平分割
+bind | split-window -h
+unbind '"'
+
+# 添加对hjkl的支持
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
