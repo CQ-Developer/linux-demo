@@ -1,0 +1,38 @@
+vimdiff
+是一个独立的可执行程序，非常适合比较两个文件之间的差异
+
+vimdiff file1 file2
+比较file1和file2两个文件之间的差异
+可以通过继续追加文件名的方式比较多个文件的差异
+
+]c
+跳转到下一个差异点
+
+[c
+跳转到上一个差异点
+
+do
+:diffget [buffer]
+将文件修改应用于当前窗口中的文件
+当和并多个文件时，可以指定由哪个缓冲区进行合并
+
+dp
+:diffput [buffer]
+将当前窗口中的文件修改推送给另一个文件
+当和并多个文件时，可以指定合并到哪个缓冲区
+
+:%diffget 或 :%diffput
+将一个文件的内容整体复制到另一个文件
+
+:diffupdate
+如果没有通过上方命令进行合并，而是手动修改了文件
+则需要执行该命令更新高亮显示
+
+git config --global merge.tool vimdiff
+将vimdiff设置为git的合并工具
+
+git config --global merge.conflictstyle diff3
+在合并时显示两个分支的共同祖先
+
+git config --global mergetool.prompt false
+在打开vimdiff时禁止弹窗提示
