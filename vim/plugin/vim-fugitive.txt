@@ -1,0 +1,25 @@
+https://github.com/tpope/vim-fugitive
+让用户在不来开vim环境的情况下执行git相关操作
+
+Plug 'tpope/vim-fugitive'
+在 .vimrc 中安装插件
+
+:G status
+相当于 git status 命令
+会在一个分割的窗口中看到熟悉的 git status 命令输出
+并且该窗口是可以交互的
+
+<c-n> <c-p>
+将光标前后移动到某个文件上
+
+-
+将文件移入或移出暂存区
+
+cc :G commit
+提交暂存区中的文件
+
+D :G Diff
+打开一个文件差异对比窗口
+
+g?
+显示更多命令的帮助信息
