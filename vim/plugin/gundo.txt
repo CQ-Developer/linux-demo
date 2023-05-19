@@ -1,0 +1,18 @@
+https://github.com/sjl/gundo.vim
+撤销树可视化插件
+需要vim编译时启用 Python 2.4+
+
+Plug 'sjl/gundo.vim'
+在 .vimrc 中配置插件
+
+:GundoToggle
+以分割方式打开两个新窗口
+左上窗口为树状结构的可以可视化表达
+左下窗口则显示此版本和上一版本之间的差异
+再次执行会关闭撤销树窗口
+
+noremap <f5> :GundoToggle<cr>
+将Gundo窗口映射到快捷键F5上
+
+:help undo-tree
+查看插件的帮助文档
