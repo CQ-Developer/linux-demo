@@ -1,0 +1,8 @@
+https://github.com/christoomey/vim-tmux-navigator
+插件官方地址
+
+Plug 'christoomey/vim-tmux-navigator'
+在.vimrc中进行配置
+
+该插件使tmux和vim的窗口跳转保持一致
+具体的配置方式可以github仓库的文档，非常详细
