@@ -1,0 +1,11 @@
+<c-b>c
+打开一个新的window
+
+<c-b>,
+为window重命名
+
+<c-b>n
+跳转到下一个window
+
+<c-b>p
+跳转到上一个window

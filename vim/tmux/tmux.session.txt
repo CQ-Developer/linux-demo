@@ -1,0 +1,19 @@
+<c-b>d
+d代表detach
+退出session，但session会一直持续直到关机
+
+tmux list-sessions
+显示所有tmuxsession
+
+tmux attach -t 0
+重新打开已经退出的名称为0的session
+session的名称可以自定义
+
+<c-b>) <c-b>(
+在多个session间跳转
+
+tmux new -s name
+在启动tmux时指定session名称
+
+<c-b>$
+在session中为session重命名
