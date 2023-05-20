@@ -2,7 +2,25 @@
 该模式只是打开了一个新的window，并在该window中启用一个默认的bash
 
 :termial | :term
-进入终端模式
+水平拆分出一个窗口并进入termial-job模式
 
-:term ls -Al
+:vertical terminal 或 :vert term
+垂直拆分出一个窗口并进入termianl-job模式
+
+<c-w>N
+将termial-job模式切换到terminal-normal模式
+类似vim的正常模式
+
+a 或 i
+将terminal-normal模式切换到terminal-job模式
+类似vim的插入模式
+
+<c-w>"寄存器
+将寄存器中的内容直接复制到终端
+
+<c-w><c-c>
+将中断快捷键<c-c>发送给终端
+
+:term [some command]
 可以通过终端模式直接执行命令
+该命令的执行结果会保存在一个buffer中
