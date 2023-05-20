@@ -9,3 +9,6 @@ https://github.com/tmux/tmux
 
 tmux
 直接输入命令创建一个新的session
+
+<c-b>
+默认的前缀键，在tmux中需要先输入前缀键再执行命令
