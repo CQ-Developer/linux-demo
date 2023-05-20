@@ -54,6 +54,7 @@ bs         表示Backspace键
 
 :map  :noremap  任何模式
 :nmap :nnoremap 普通模式
+:tmap :tnoremap 终端模式
 :vmap :vnoremap 可视模式、选择模式
 :xmap :xnoremap 可视模式
 :smap :snoremap 选择模式
