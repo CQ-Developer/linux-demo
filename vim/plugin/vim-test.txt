@@ -1,0 +1,19 @@
+https://github.com/vim-test/vim-test
+该插件支持在vim中进行测试
+可以详细阅读该插件的文档
+
+:TestNearest
+运行离光标最近的测试
+
+:TestFile
+运行当前文件中的测试
+
+:TestSuite
+运行整个测试集
+
+:TestLast
+运行最后的那个测试
+
+let test#strategy = "dispatch"
+如果希望使用vim-dispatch运行测试
+可以在.vimrc中进行如上配置
