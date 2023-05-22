@@ -1,0 +1,52 @@
+:substitute :su :s
+vim通过:substitute命令实现搜索和替换功能
+
+:[range]s[ubstitute]/{pattern}/{string}/[flags] [count]
+语法如上
+
+[range]
+number    表示行号
+$         表示最后一行
+%         表示整个文件
+/pattern/ 表示在下一个搜索结果所在的行操作
+?pattern? 表示在上一个搜索结果所在的行操作
+,         可以将多个范围进行组合
+;         可以将多个范围进行组合
+可以在视图模式中将选中区域作为默认区间
+
+[flags]
+g 全局替换
+c 每次替换前需要确认
+e 没有匹配项时不显示错误
+i 忽略大小写
+I 区分大小写
+
+\
+转义符，可以转移特殊字符
+当然也可以修改替换命令的分隔符
+下面两个命令是相同的
+:s+path/to/dir+path/to/other/dir+gc (使用+号作为命令分隔符，当然其他符号也行，比方'号，#号之类)
+:s/path\/to\/dir/path\/to\/other\/dir/gc
+
+\<word\>
+单词界定符，只会替换完整的单词
+
+:help cmdline-ranges
+查看更多关于选择区间的问题
+
+:s/cat/dog
+将当前行内的cat替换为dog
+
+:s/cat/dog/gi
+将当前行的cat.Cat()替换为dog.dog()
+
+:%s/animal/creature/g
+将整个文件中的所有animal替换为creature
+替换完成后会在状态栏显示替换了多少个
+
+:12;/dog/s/animal/creature/g
+从第12行开始找到包含dog的行，在这个范围内将所有animal替换为creature
+
+:s/\<animal\>/creature/g
+完整匹配animal这个单词并进行替换
+不会替换调animals或animal_add之类的
