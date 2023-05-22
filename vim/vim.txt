@@ -39,3 +39,11 @@ vim --startuptime startuptime.log
 
 # 在文档中跳转到光标所在连接
 ctrl + ]
+
+# 使下一个选择的文本变为小写
+gu{motion}  比如guw使当前单词变为小写
+guu         使当前行变为小写
+
+# 使下一个选的文档变为大写
+gU{motion} 比如gUw使当前单词变为大写
+gUU        使当前行变为大写
