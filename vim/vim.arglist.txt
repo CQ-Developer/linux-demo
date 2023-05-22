@@ -1,0 +1,20 @@
+argument list
+参数列表支持在多个文件中执行同一操作，而不需要用户预先加载缓冲区
+
+:arg
+用于定义参数列表
+
+:argdo
+对参数列表中的所有文件执行一条命令
+
+:args
+用于显示参数列表中的文件列表
+
+:arg **/*.py
+:argdo %s/\<animal\>/creature/ge | update
+递归将每个python文件中的单词animal替换为creature
+:arg <pattern>              表示在参数列表中添加匹配<pattern>模式的文件名，每个文件名对应有它自己的缓冲区
+**/*.py                     通配符，表示所有.py文件，会递归匹配当前目录下的所有.py文件
+:argdo                      对参数列表中的每一项执行同一条命令
+%s/\<animal\>/creature/ge   将每个文件中的每个单词animal替换成creature
+update                      相当于:write，用于保存被修改的缓冲区
