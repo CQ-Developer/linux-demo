@@ -1,0 +1,22 @@
+https://github.com/W0rp/ale
+语法检查插件，特点时异步和开箱即用
+其功能已经超出语法检查器的范畴，成为一个全功能的语言协议服务器
+支持自动补全，定义跳转，等等
+
+ale(Asynchronous Lint Engine)
+可以在输入的同时显示语法检查错误，即它在后台异步运行检查器
+
+:ALEToggle
+是否启用语法检查
+
+:ALEGoToDefinition
+跳转到定义
+
+:ALEFindRefrences
+查找定义的引用
+
+let g:ale_completion_endable = 1
+在.vimrc中配置，启用自动补全功能
+
+:help ale-options
+查看文档

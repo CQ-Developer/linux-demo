@@ -1,0 +1,2 @@
+https://github.com/vim-syntastic/Syntastic
+语法检查插件，支持超过100中语言，并且可以通过其他小型语法检查插件进行扩展
