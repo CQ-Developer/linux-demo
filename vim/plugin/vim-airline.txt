@@ -1,0 +1,2 @@
+https://github.com/vim-airline/vim-airline
+轻量级状态栏增强插件
