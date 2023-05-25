@@ -8,3 +8,5 @@ visual line 模式
 
 visual block 模式
 使用组合命令 <Ctrl-v> 进入该模式
+
+在试图模式中可以使用Shift加常用的进入插入模式的命令，从而实现列编辑
