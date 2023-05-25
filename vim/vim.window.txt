@@ -1,3 +1,6 @@
+# 新建一个窗口
+:new
+
 # 垂直切分处一个新窗口
 :sp path/file
 :split path/file
