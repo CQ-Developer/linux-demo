@@ -1,0 +1,11 @@
+https://github.com/vim-scripts/ScrollColors
+该插件可以以交互式的方式浏览不同的主题颜色
+
+:SCROLL
+让用户可以交互式的浏览各种主题
+
+:NEXTCOLOR
+查看下一个主题
+
+:PREVCOLOR
+查看上一个主题
