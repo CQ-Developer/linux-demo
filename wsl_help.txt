@@ -4,6 +4,12 @@ wsl --list --online
 # 查看已安装的linux发行版
 wsl --list --verbose
 
+# 安装指定版本的linux发行版
+wsl --install <DistributionName>
+
+# 安装指定版本的linux发行版，但不通过MicrosoftStore
+wsl --install <DistributionName> --web-download
+
 # 通过powershell或cmd运行特定的linux发行版
 wsl --distribution <DistributionName> --user <UserName>
 
