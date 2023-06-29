@@ -1,0 +1,29 @@
+# 查看可用的linux发行版
+wsl --list --online
+
+# 查看已安装的linux发行版
+wsl --list --verbose
+
+# 通过powershell或cmd运行特定的linux发行版
+wsl --distribution <DistributionName> --user <UserName>
+
+# 关闭正在运行的所有linux发行版
+wsl --shutdown
+
+# 终止指定的linux发行版
+wsl --terminate <DistributionName>
+
+# 注销或卸载指定的linux发行版
+wsl --unregister <DistributionName>
+
+# 更新wsl
+wsl --update
+
+# 检查wsl状态
+wsl --status
+
+# 检查wsl版本
+wsl --version
+
+# 帮助命令
+wsl --help
